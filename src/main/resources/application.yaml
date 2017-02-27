@@ -1,0 +1,29 @@
+############ learn yaml   #############            
+spring:
+  profiles.active: dev
+  
+########### dev env ###################  
+---
+spring:
+  profiles: dev
+logging:
+  file: logs/dev_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ivan.learn.springboot.controller: DEBUG
+    org.hibernate: DEBUG
+
+########## prod env ####################
+---
+spring:
+  profiles: prod
+logging:
+  file: logs/production_app.log
+  pattern:
+    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  level:
+    ivan.learn.springboot.controller: WARN
+    org.hibernate: WARN
+
